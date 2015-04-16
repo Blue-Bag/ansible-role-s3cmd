@@ -1,14 +1,15 @@
 ---
-sudo_user: ubuntu
+sudo_user: ansible
 
 s3cmd_pkgs:
   - python-setuptools  
   - python-dateutil
+  - python-magic
 
 aws_access_key: redacted
 aws_secret_key: redacted
 
 s3cmd_repo: "https://github.com/s3tools/s3cmd"
-s3cmd_dest: "/home/ubuntu/s3cmd"
-s3cmd_version: "v1.5.0-rc1"
-s3cmd_cfg_path: "/home/ubuntu/.s3cfg"
+s3cmd_dest: "/root/s3cmd"
+s3cmd_version: "v1.5.2"
+s3cmd_cfg_path: "/root/.s3cfg"
