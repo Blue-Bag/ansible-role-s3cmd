@@ -6,7 +6,11 @@ Installs s3cmd
 
 Requirements
 ------------
-None
+None to install - but a Amazon S3 account to use
+
+http://s3tools.org/s3cmd
+
+
 
 Role Variables
 --------------

@@ -14,16 +14,17 @@
     version: "{{ s3cmd_version }}"
     
 - name: Run installation script
-  command: sudo python setup.py install
-  sudo_user: "{{ sudo_user }}"
+  command: python setup.py install
+  #sudo_user: "{{ sudo_user }}"
   args:
     chdir: "{{ s3cmd_dest }}"
     creates: "/usr/local/bin/s3cmd"
+  sudo: true
     
 - name: Set config files a set location
   template:
     src: "s3cfg.j2"
     dest: "{{ s3cmd_cfg_path }}"
     mode: 0644
-    owner: ubuntu
-    group: ubuntu
+    owner: "{{ s3cmd_cfg_owner }}"
+    group: "{{ s3cmd_cfg_group }}"

@@ -13,3 +13,5 @@ s3cmd_repo: "https://github.com/s3tools/s3cmd"
 s3cmd_dest: "/root/s3cmd"
 s3cmd_version: "v1.5.2"
 s3cmd_cfg_path: "/root/.s3cfg"
+
+s3cmd_bucket_location: 'US'
