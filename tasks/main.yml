@@ -5,14 +5,14 @@
     name: "{{ item }}"
     state: present
   with_items: s3cmd_pkgs
-  
+
 - name: Get s3cmd pkg from github
   git:
     accept_hostkey: "yes"
     repo: "{{ s3cmd_repo }}"
     dest: "{{ s3cmd_dest }}"
     version: "{{ s3cmd_version }}"
-    
+
 - name: Run installation script
   command: python setup.py install
   #sudo_user: "{{ sudo_user }}"
@@ -20,7 +20,7 @@
     chdir: "{{ s3cmd_dest }}"
     creates: "/usr/local/bin/s3cmd"
   sudo: true
-    
+
 - name: Set config files a set location
   template:
     src: "s3cfg.j2"
