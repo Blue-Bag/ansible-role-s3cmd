@@ -1,0 +1,7 @@
+---
+
+- name: Install s3cmd.
+  pip:
+    name: s3cmd
+    state: latest
+  sudo: true

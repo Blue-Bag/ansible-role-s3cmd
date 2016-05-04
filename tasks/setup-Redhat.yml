@@ -1,0 +1,10 @@
+---
+
+- name: Install dependencies (RedHat)
+  yum:
+    update_cache: yes
+    name: "{{ item }}"
+    state: present
+  with_items: s3cmd_pkgs
+  sudo: true
+

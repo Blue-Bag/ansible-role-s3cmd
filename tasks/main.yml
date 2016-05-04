@@ -1,30 +1,51 @@
 ---
 # tasks file for s3cmd
-- name: Install dependencies
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items: s3cmd_pkgs
 
-- name: Get s3cmd pkg from github
-  git:
-    accept_hostkey: "yes"
-    repo: "{{ s3cmd_repo }}"
-    dest: "{{ s3cmd_dest }}"
-    version: "{{ s3cmd_version }}"
+- name: set fact for packages (git)
+  set_fact:
+     s3cmd_pkgs: "{{ s3cmd_pkgs_git }}"
+  when: s3cmd_install == 'git'
 
-- name: Run installation script
-  command: python setup.py install
-  #sudo_user: "{{ sudo_user }}"
-  args:
-    chdir: "{{ s3cmd_dest }}"
-    creates: "/usr/local/bin/s3cmd"
-  sudo: true
+- name: set fact for packages (pip)
+  set_fact:
+     s3cmd_pkgs: "{{ s3cmd_pkgs_pip }}"
+  when: s3cmd_install == 'pip'
 
-- name: Set config files a set location
+
+
+- include: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include: git-install.yml
+  when: s3cmd_install == 'git'
+
+- include: pip-install.yml
+  when: s3cmd_install == 'pip'
+
+# - name: Ensure Config path exists
+#   file:
+#     path: "{{ s3cmd_cfg_path }}"
+#     state: directory
+#     owner: "root"
+#     group: "{{ s3cmd_cfg_group }}"
+#     mode: 0775
+#     recurse: yes
+#   sudo: true
+
+- name: Set config files location
   template:
     src: "s3cfg.j2"
-    dest: "{{ s3cmd_cfg_path }}"
-    mode: 0644
+    dest: "{{ s3cmd_cfg_path }}/{{ s3cmd_cfg_file }}"
+    mode: 0600
     owner: "{{ s3cmd_cfg_owner }}"
     group: "{{ s3cmd_cfg_group }}"
+  sudo: true
+
+# - name: Symlink s3cmd executable file.
+#   file:
+#     src: '/usr/local/bin/s3cmd'
+#     dest: '/usr/bin/s3cmd'
+#     state: link

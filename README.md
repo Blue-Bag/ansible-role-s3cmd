@@ -10,6 +10,7 @@ None to install - but a Amazon S3 account to use
 
 http://s3tools.org/s3cmd
 
+Added pip install and OS supprt for Debian / Redhat
 
 
 Role Variables
@@ -17,15 +18,15 @@ Role Variables
 sudo_user: The user to run the role as
 
 s3cmd_pkgs: Required python dependencies
-  - python-setuptools  
+  - python-setuptools
   - python-dateutil
   - python-magic
 
 aws_access_key: supply your access key in (vaulted) host_vars / group_vars
 aws_secret_key: supply your secret key in (vaulted) host_vars / group_vars
 
-s3cmd_repo: "https://github.com/s3tools/s3cmd" - the repo to install from 
-s3cmd_dest: "/root/s3cmd" the default install location 
+s3cmd_repo: "https://github.com/s3tools/s3cmd" - the repo to install from
+s3cmd_dest: "/root/s3cmd" the default install location
 s3cmd_version: "v1.5.2" - the version to install
 s3cmd_cfg_path: "/root/.s3cfg" - the path of the config file
 
