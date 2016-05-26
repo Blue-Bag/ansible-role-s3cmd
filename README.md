@@ -31,6 +31,10 @@ s3cmd_version: "v1.5.2" - the version to install
 s3cmd_cfg_path: "/root/.s3cfg" - the path of the config file
 
 
+Note that on Centos I changed thegroup ownership of /ur/lib/python2.6/site-packages to ansible admin group
+Otherwise it only runs for root
+
+
 Dependencies
 ------------
 None
