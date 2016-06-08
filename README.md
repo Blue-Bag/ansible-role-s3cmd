@@ -15,7 +15,7 @@ Added pip install and OS supprt for Debian / Redhat
 
 Role Variables
 --------------
-sudo_user: The user to run the role as
+become_user: The user to run the role as
 
 s3cmd_pkgs: Required python dependencies
   - python-setuptools
