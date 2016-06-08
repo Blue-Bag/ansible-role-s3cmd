@@ -6,5 +6,5 @@
     name: "{{ item }}"
     state: present
   with_items: s3cmd_pkgs
-  sudo: true
+  become: true
 

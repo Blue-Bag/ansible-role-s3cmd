@@ -13,4 +13,4 @@
   args:
     chdir: "{{ s3cmd_dest }}"
     creates: "/usr/local/bin/s3cmd"
-  sudo: true
+  become: true

@@ -4,4 +4,4 @@
   pip:
     name: s3cmd
     state: latest
-  sudo: true
+  become: true

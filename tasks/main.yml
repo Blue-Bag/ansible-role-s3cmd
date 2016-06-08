@@ -33,7 +33,7 @@
 #     group: "{{ s3cmd_cfg_group }}"
 #     mode: 0775
 #     recurse: yes
-#   sudo: true
+#   become: true
 
 - name: Set config files location
   template:
@@ -42,7 +42,7 @@
     mode: 0600
     owner: "{{ s3cmd_cfg_owner }}"
     group: "{{ s3cmd_cfg_group }}"
-  sudo: true
+  become: true
 
 # - name: Symlink s3cmd executable file.
 #   file:
