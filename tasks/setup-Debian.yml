@@ -5,5 +5,5 @@
     update_cache: yes
     name: "{{ item }}"
     state: present
-  with_items: s3cmd_pkgs
+  with_items: "{{ s3cmd_pkgs }}"
   become: true
