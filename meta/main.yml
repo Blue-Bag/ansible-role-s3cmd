@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: jnakatsui
-  description: 
+  author: GBoobyer / jnakatsui
+  description:
   license:
     - MIT
   min_ansible_version: 1.7
@@ -9,6 +9,13 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - precise
+    - name: Debian
+      versions:
+        - Jessie
+    - name: EL
+      versions:
+        - 6
+        - 7
   categories:
     - cloud:ec2
     - web
