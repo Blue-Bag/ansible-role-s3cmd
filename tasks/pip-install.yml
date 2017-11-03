@@ -2,6 +2,7 @@
 
 - name: Install s3cmd.
   pip:
-    name: s3cmd
+    name: "{{ item }}"
     state: latest
+  with_items: pip_packages
   become: true
