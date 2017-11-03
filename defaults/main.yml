@@ -20,7 +20,7 @@ s3cmd_repo: "https://github.com/s3tools/s3cmd"
 
 
 s3cmd_dest: "/opt/s3cmd"
-s3cmd_version: "v1.6.1"
+s3cmd_version: "v2.0.1"
 s3cmd_cfg_path: '/etc/s3cmd/'
 
 s3cmd_cfg_file: '.s3cfg'
