@@ -8,6 +8,7 @@
     version: "{{ s3cmd_version }}"
     force: no
     update: no
+  become: true
 
 - name: Run installation script
   command: python setup.py install

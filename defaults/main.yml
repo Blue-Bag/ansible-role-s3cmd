@@ -5,6 +5,8 @@ s3cmd_pkgs_git:
   - python-setuptools
   - python-dateutil
   - python-magic
+  - python-boto3
+  - python-botocore
 
 s3cmd_pkgs_pip:
   - python-pip
