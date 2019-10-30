@@ -1,13 +1,21 @@
 ---
-become_user: ansible
+#become_user: ansible
 
 s3cmd_pkgs_git:
   - python-setuptools
   - python-dateutil
   - python-magic
+  - python-boto3
+  - python-botocore
 
 s3cmd_pkgs_pip:
   - python-pip
+
+pip_packages:
+  - boto
+  - botocore
+  - boto3
+  - s3cmd
 
 s3cmd_install: 'git'
 #s3cmd_install: 'pip'

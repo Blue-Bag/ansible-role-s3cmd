@@ -2,6 +2,6 @@
 
 - name: Install s3cmd.
   pip:
-    name: s3cmd
+    name: pip_packages
     state: latest
   become: true
