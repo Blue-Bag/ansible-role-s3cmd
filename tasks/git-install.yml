@@ -6,12 +6,12 @@
     repo: "{{ s3cmd_repo }}"
     dest: "{{ s3cmd_dest }}"
     version: "{{ s3cmd_version }}"
-    force: no
-    update: no
+    force: yes
+    update: yes
   become: true
 
 - name: Run installation script
-  command: python setup.py install
+  command: python3 setup.py install
   #sudo_user: "{{ sudo_user }}"
   args:
     chdir: "{{ s3cmd_dest }}"
