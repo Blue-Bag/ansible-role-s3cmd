@@ -13,16 +13,16 @@
 
 
 
-- include: setup-RedHat.yml
+- include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 
-- include: setup-Debian.yml
+- include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- include: git-install.yml
+- include_tasks: git-install.yml
   when: s3cmd_install == 'git'
 
-- include: pip-install.yml
+- include_tasks: pip-install.yml
   when: s3cmd_install == 'pip'
 
 # - name: Ensure Config path exists
